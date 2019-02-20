@@ -1,14 +1,15 @@
+server:
+  port: 8761
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
 spring:
- profiles:
-   active:
-     - dev
----
-spring:
- profiles: dev
- application:
-   name: microservice-config-client-dev
----
-spring:
- profiles: test
- application:
-   name: microservice-config-client-test
+  application:
+    name: eurka-server
